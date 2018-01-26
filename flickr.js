@@ -31,6 +31,9 @@ function getFlickrData(response) {
             for(var k=0; k<3; k++){         //removing the first 3 items in the array as only the 4th one is the description
                 descriptionArray.shift();
             }
+            //check if description is empty
+            var description = descriptionArray.toString() === ""?"Sorry, no description yet":descriptionArray.toString();
+            description = description.match(/image: Inline image/g) !== null?"Sorry, no description yet":description;
             
             //check if tags is empty
             var tags = item.tags === ""?"Sorry, no tags yet":item.tags.replace(/\s/g, ", ");
@@ -44,7 +47,7 @@ function getFlickrData(response) {
                                     '<a href="https://www.flickr.com/photos/' + item.author_id + '">' + item.author.replace(/nobody@flickr.com\s\(\"/g, "").replace(/\"\)/g, "") + '</a>' +
                                     '</div>' + 
 
-                                    '<p class="flickr"><b>Description:</b> ' + descriptionArray.toString() +
+                                    '<p class="flickr"><b>Description:</b> ' + description +
 
                                     '<p class="flickr"><b>Tags:</b> ' + tags + '</p>'
                                  );
