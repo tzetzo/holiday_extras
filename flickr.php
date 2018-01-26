@@ -11,12 +11,11 @@
     </head>
     <body>
         
-        <h1 class="flickr-heading">Holiday Extras Task - Web Development Flickr Task</h1>
+        <h1 class="flickr-heading container">Holiday Extras Task - Web Development Flickr Task</h1>
         
         <div id="flickr-container" class="container"></div>
-        <div>
-            <ul id="flickr-pagination" class="pagination"></ul>
-        </div>
+
+        <ul id="flickr-pagination" class="pagination"></ul>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="flickr.js"></script><!--defines the function that retrieves the data-->
