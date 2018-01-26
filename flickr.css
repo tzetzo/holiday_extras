@@ -1,0 +1,28 @@
+.flickr-heading {
+    padding-top:1em;
+    padding-bottom:1em;
+    text-align:center;
+}
+
+#flickr-container{
+    padding-bottom: 5em;
+}
+
+p.flickr {
+    overflow: auto;
+}
+
+.pagination{
+    left: 50%;
+    bottom:0;
+    position: fixed;
+    transform: translate(-50%);
+}
+
+[data-show^="items"] {
+    display:none;
+}
+
+[data-show="items0"] {
+    display:flex;
+}
