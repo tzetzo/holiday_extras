@@ -1,3 +1,8 @@
+body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .flickr-heading {
     padding-top:1em;
     padding-bottom:1em;
@@ -17,6 +22,15 @@ p.flickr {
     bottom:0;
     position: fixed;
     transform: translate(-50%);
+    z-index:1;
+}
+.pagination-background{
+    opacity:0.9;
+    background-color: grey;
+    height: 4.375em;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 [data-show^="items"] {
