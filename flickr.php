@@ -11,7 +11,7 @@
     </head>
     <body>
         
-        <h1 class="flickr-heading container">Holiday Extras Task - Web Development Flickr Task</h1>
+        <h4 class="flickr-heading container-fluid">Holiday Extras Task - Web Development Flickr Task</h4>
         
         <div id="flickr-container" class="container"></div>
         
