@@ -47,6 +47,6 @@ p.flickr {
     display:flex;
 }
 
-.page-link:hover{
+.page-link:hover, .clicked{
     background-color: #91838C;
 }
