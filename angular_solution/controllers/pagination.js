@@ -1,7 +1,7 @@
-flickrApp.controller('pagination', ['$scope',function($scope){ 
+flickrApp.controller('pagination', ['$scope', '$location',function($scope, $location){ 
     
-    //set the background of the first link dark by default as its URL is the first shown
-    $scope['clicked0'] = 1;
+    //set the background of the currently active pagination link
+    $scope['clicked'+ ($location.$$url).split("").pop()] = 1;
     
     //makes the background of the currently selected pagination link dark
     $scope.click = function(number){
