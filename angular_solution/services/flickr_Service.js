@@ -1,10 +1,10 @@
+//inserts the data from the REST API request inside the corresponding containers
 angular.module('flickrApp').factory('flickr_Service', [function(){
 	var flickr_Service = {};
     
     var response = JSON.parse(sessionStorage.getItem("response"));
     
     flickr_Service.insertData = function(i,j){
-        //put the data from the REST API request inside the corresponding containers
         for (var i=i; i < j; i++) {
             var item = response.items[i];
 

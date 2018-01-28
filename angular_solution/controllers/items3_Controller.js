@@ -1,6 +1,6 @@
 flickrApp.controller('items3_Controller', ['flickr_Service',function(flickr_Service){ 
 
-    //put the data from the REST API request inside the corresponding container
+    //insert the data from the REST API request inside the container
     flickr_Service.insertData(12,16);
 
 }]); 

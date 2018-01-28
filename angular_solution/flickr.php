@@ -26,8 +26,8 @@
         </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="flickr.js?<?php echo time(); ?>"></script><!--defines the function that retrieves the data-->
-        <script src="http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=getFlickrData"></script><!--requests the data--><!--https://mashupguide.net/1.0/html/ch08s07.xhtml-->
+       
+        
         <script src="https://code.angularjs.org/1.6.8/angular.min.js"></script>
         <script src="https://code.angularjs.org/1.6.8/angular-route.min.js"></script>
         <script src="./js/flickrApp.js?<?php echo time(); ?>"></script>
@@ -38,6 +38,8 @@
         <script src="./controllers/items2_Controller.js?<?php echo time(); ?>"></script>
         <script src="./controllers/items3_Controller.js?<?php echo time(); ?>"></script>
         <script src="./controllers/items4_Controller.js?<?php echo time(); ?>"></script>
+        
+        <script src="http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=getFlickrData"></script><!--requests the data--><!--https://mashupguide.net/1.0/html/ch08s07.xhtml-->
         
     </body>
 </html>
