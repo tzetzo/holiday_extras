@@ -17,7 +17,7 @@
         
         <div class="pagination-background">
             <ul id="flickr-pagination" class="pagination" ng-controller="pagination">
-                <li class="page-item pag-link"><a class="page-link" ng-click="click(0)" ng-class="{ 'clicked':clicked0 }"  href="/holidayextras/angular_solution/flickr.php#!/items0">1</a></li>
+                <li class="page-item pag-link"><a class="page-link" ng-click="click(0)" ng-class="{ 'clicked':clicked0 }" href="/holidayextras/angular_solution/flickr.php#!/items0">1</a></li>
                 <li class="page-item pag-link"><a class="page-link" ng-click="click(1)" ng-class="{ 'clicked':clicked1 }" href="/holidayextras/angular_solution/flickr.php#!/items1">2</a></li>
                 <li class="page-item pag-link"><a class="page-link" ng-click="click(2)" ng-class="{ 'clicked':clicked2 }" href="/holidayextras/angular_solution/flickr.php#!/items2">3</a></li>
                 <li class="page-item pag-link"><a class="page-link" ng-click="click(3)" ng-class="{ 'clicked':clicked3 }" href="/holidayextras/angular_solution/flickr.php#!/items3">4</a></li>
