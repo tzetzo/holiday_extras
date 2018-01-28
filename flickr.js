@@ -54,9 +54,18 @@ function getFlickrData(response) {
         }
     
         //set the event listeners for the pagination links so that when one of them is clicked all are hided and only the clicked one is shown
-        $(".pag-link").click(function(event){
+        $(".page-link").click(function(event){
+            
+            //makes the background of the currently selected pagination link dark
+            $(".page-link").removeClass("clicked");
+            $(event.target).addClass("clicked");
+            
             $(".items-container").hide();
             $('[data-show="items' + (Number($(this).text()) - 1) + '"]').css("display", "flex");         
         });
+    
+        //sets the background of the first pagination link when page loads
+        $(".page-link:contains('1')").addClass("clicked");
+        
     
 }
