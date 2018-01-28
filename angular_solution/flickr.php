@@ -17,11 +17,11 @@
         
         <div class="pagination-background">
             <ul id="flickr-pagination" class="pagination">
-                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/flickr.php#!/items0">1</a></li>
-                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/flickr.php#!/items1">2</a></li>
-                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/flickr.php#!/items2">3</a></li>
-                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/flickr.php#!/items3">4</a></li>
-                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/flickr.php#!/items4">5</a></li>
+                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/angular_solution/flickr.php#!/items0">1</a></li>
+                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/angular_solution/flickr.php#!/items1">2</a></li>
+                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/angular_solution/flickr.php#!/items2">3</a></li>
+                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/angular_solution/flickr.php#!/items3">4</a></li>
+                <li class="page-item pag-link"><a class="page-link" href="/holidayextras/angular_solution/flickr.php#!/items4">5</a></li>
             </ul>
         </div>
         
