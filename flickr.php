@@ -22,10 +22,9 @@
 
         <nav class="flickr-pagination"><ul id="flickr-pagination" class="pagination"></ul></nav>
 
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="flickr.js?<?php echo time(); ?>"></script><!--defines the function that retrieves the data-->
-        <script src="http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=getFlickrData"></script><!--requests the data--><!--https://mashupguide.net/1.0/html/ch08s07.xhtml-->
+        <script src="http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=flickr.getFlickrData"></script><!--requests the data--><!--https://mashupguide.net/1.0/html/ch08s07.xhtml-->
     </body>
 </html>
