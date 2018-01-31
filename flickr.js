@@ -1,14 +1,18 @@
 //one function only in global space and no vars in global space
 function getFlickrData(response) {
-
+        var availableTags = [];
+        var save_item_number=null;
+        var save_item_width=null;
+        var save_item_height=null;
+        
         //calculates how many containers with 4 items each we need
         var items_divs = Math.ceil(response.items.length/4); 
         
         //create the number of containers as calculated above along with the corresponding pagination links
-        for(var i=0,j=0;i<items_divs;i++){
+        for(let i=0,j=1;i<items_divs;i++){
             //append the containers that contain 4 items each:
-            $("#flickr-container").append(      
-                                    '<div class="row align-items-start items-container" data-show="items' + i + '">' + 
+            $('#flickr-container').append(      
+                                    '<div class="row align-items-start" data-show="items' + (i+1) + '">' + 
                                             '<div class="col item' + j + '"></div>' + 
                                             '<div class="col item' + (j+1) + '"></div>' +
                                             '<div class="col item' + (j+2) + '"></div>' +
@@ -16,8 +20,8 @@ function getFlickrData(response) {
                                     '</div>' 
                                  );
             //append the pagination links for each of the above containers:
-            $("#flickr-pagination").append(      
-                                    '<li class="page-item pag-link"><a class="page-link" href="#">' + (i+1) + '</a></li>'
+            $('#flickr-pagination').append(      
+                                    '<li><a class="page-link" href="#' + (i+1) + '">' + (i+1) + '</a></li>'
                                  );
             j=j+4
         }
@@ -38,7 +42,7 @@ function getFlickrData(response) {
             //check if tags is empty
             var tags = item.tags === ""?"Sorry, no tags yet":item.tags.replace(/\s/g, ", ");
             
-            $(".item" + i).append(      
+            $('.item' + (i+1)).append(      
                                     '<img class="img-responsive img-thumbnail" alt="'+ item.title + '" src="' + item.media.m + '"/>' + 
 
                                     '<div>' + 
@@ -47,25 +51,80 @@ function getFlickrData(response) {
                                     '<a href="https://www.flickr.com/photos/' + item.author_id + '">' + item.author.replace(/nobody@flickr.com\s\(\"/g, "").replace(/\"\)/g, "") + '</a>' +
                                     '</div>' + 
 
-                                    '<p class="flickr"><b>Description:</b> ' + description +
+                                    '<p><b>Description:</b> ' + description +
 
-                                    '<p class="flickr"><b>Tags:</b> ' + tags + '</p>'
+                                    '<p><b>Tags:</b> ' + tags + '</p>'
                                  );
+            
+            //construct the array containing the info for the available photo titles for the search field
+            availableTags.push({label:item.title, value:item.title + " item" + (i+1)});
         }
-    
+        
         //set the event listeners for the pagination links so that when one of them is clicked all are hided and only the clicked one is shown
-        $(".page-link").click(function(event){
+        $('.page-link').click(function(event){
+            $(window).scrollTop(0);
+            //empty the search box
+            $('#photo_search').val("");
+            //check if there is item shown after using search
+            if(save_item_number !== null){
+                $('.item' + save_item_number).addClass('col');
+                $('.item' + save_item_number).css({
+                                            'position' : 'relative',  
+                                            'z-index' : 'auto',           
+                                            'background-color' : 'rgba(0, 0, 0, 0)',    
+                                            'width' : 'auto',
+                                            'height' : 'auto'
+                                        });
+                save_item_number = null;
+            }
             
             //makes the background of the currently selected pagination link dark
-            $(".page-link").removeClass("clicked");
-            $(event.target).addClass("clicked");
+            $('.page-link').removeClass('clicked');
+            $(event.target).addClass('clicked');
             
-            $(".items-container").hide();
-            $('[data-show="items' + (Number($(this).text()) - 1) + '"]').css("display", "flex");         
+            //show only the selected items
+            $('[data-show^="items"]').hide();
+            $('[data-show="items' + Number($(this).text()) + '"]').css('display', 'flex');      
+            
+            //make sure the hash in the url corresponds to the hash of the selected pagination link
+            window.location.hash = $(event.target).attr('href');
         });
     
         //sets the background of the first pagination link when page loads
-        $(".page-link:contains('1')").addClass("clicked");
+        $('.page-link:contains("1")').addClass('clicked');
+        //set the hash to the first page
+        window.location.hash = "#1";
         
+        //jquery UI widget
+        $('#photo_search').autocomplete({
+          source: availableTags,classes: {
+            "ui-autocomplete": "highlight"
+          }
+        });
     
+        //detect search button click
+        $('.go').click(function(){
+            var item_number = Number(($('#photo_search').val().match(/item\d+/)[0]).replace( /item/, ''));
+            var items_number = Math.ceil(item_number/4);
+            
+            //go to the section where the searched photo is located
+            $('[href="#' + items_number + '"]').click();
+            
+            //show only the searched item
+            $('.item' + item_number).removeClass('col');
+            $('.item' + item_number).css({
+                                            'position' : 'absolute',  //relative
+                                            'z-index' : '1',            //auto
+                                            'background-color' : '#fff',    //rgba(0, 0, 0, 0)
+                                            'width' : '100%',
+                                            'height' : '100%'
+                                        });
+            //save the item width and height for restoring it later
+            save_item_number = item_number;
+            save_item_width = $('.item' + item_number).width();
+            save_item_height = $('.item' + item_number).height();
+
+        });
+        
+   
 }
