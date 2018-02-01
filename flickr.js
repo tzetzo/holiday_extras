@@ -36,7 +36,7 @@
             //calculates how many containers with 4 items each we need
             var items_divs = Math.ceil(response.items.length/4); 
             
-            for(let i=0,j=1;i<items_divs;i++){
+            for(var i=0,j=1;i<items_divs;i++){
                 //append the containers that contain 4 items each:
                 $('#flickr-container').append(      
                                         '<div class="row align-items-start" data-show="items' + (i+1) + '">' + 
